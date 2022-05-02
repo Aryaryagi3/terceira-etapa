@@ -71,34 +71,27 @@
             function print() {
                 let elements = document.getElementById("form").elements;
 
-                localStorage.setItem('name', elements[0].value);
-                localStorage.setItem('email', elements[1].value);
-                localStorage.setItem('phone', elements[2].value);
-                localStorage.setItem('subject', elements[3].value);
-                localStorage.setItem('message', elements[4].value);
+                for (let i = 0; i < 5; i++)
+                    localStorage.setItem(elements[i].name, elements[i].value);
+
             };
 
             window.onload = function() {
-                document.getElementById("inserted-name").innerHTML = localStorage.getItem('name');
-                document.getElementById("inserted-email").innerHTML = localStorage.getItem('email');
-                document.getElementById("inserted-phone").innerHTML = localStorage.getItem('phone');
-                document.getElementById("inserted-subject").innerHTML = localStorage.getItem('subject');
-                document.getElementById("inserted-message").innerHTML = localStorage.getItem('message');
+                let keyWords = ['name', 'email', 'phone', 'subject', 'message']
 
-                localStorage.removeItem('name');
-                localStorage.removeItem('email');
-                localStorage.removeItem('phone');
-                localStorage.removeItem('subject');
-                localStorage.removeItem('message');
+                for (let i = 0; i < 5; i++) {
+                    document.getElementById("inserted-" + keyWords[i]).innerHTML = localStorage.getItem(keyWords[i]);
+                    localStorage.removeItem(keyWords[i]);
+                }
             };
 
             function validate() {
                 let elements = document.getElementById("form").elements;
-                let words = ['nome', 'e-mail', 'telefone', 'subject', 'message']
+                let keyWords = ['nome', 'e-mail', 'telefone', 'assunto', 'mensagem']
 
                 for (let i = 0; i < 5; i++) {
                     if (elements[i].value == "") {
-                    alert("Por favor, preencha o campo " + words[i]);
+                    alert("Por favor, preencha o campo " + keyWords[i]);
                     return false;
                     }
                 }
