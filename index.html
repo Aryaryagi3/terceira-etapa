@@ -12,10 +12,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body class="d-flex flex-column min-vh-100">
-        <header class="d-flex p-3 bg-dark text-white">
-            <div>
-                <h2>Terceira Etapa</h2>
-            </div>
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand p-2" href="#">Terceira Etapa</a>
+            </nav>
         </header>
         <main class="container">               
                 <div class="px-4 py-5 my-5 text-center">
@@ -36,22 +36,27 @@
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control" id="floatingInput" name="name" placeholder="Insira o nome aqui">
                             <label for="loatingInput">Nome</label>
+                            <p class="text-secondary"><small>Formato: exemplo</small></p>
                         </div>
                         <div class="form-floating mb-3">
                             <input type="email" class="form-control" id="floatingInput" name="email" placeholder="Insira o e-mail aqui">
                             <label for="loatingInput">E-mail</label>
+                            <p class="text-secondary"><small>Formato: exemplo@exemplo</small></p>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="tel" class="form-control" id="floatingInput" name="phone" placeholder="Insira o telefone aqui">
+                            <input type="tel" pattern="[0-9]{5}-[0-9]{4}" class="form-control" id="floatingInput" name="phone" placeholder="Insira o telefone aqui">
                             <label for="loatingInput">Telefone</label>
+                            <p class="text-secondary"><small>Formato: xxxxx-xxxx</small></p>
                         </div>
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control" id="floatingInput" name="subject" placeholder="Insira o assunto aqui">
                             <label for="loatingInput">Assunto</label>
+                            <p class="text-secondary"><small>Formato: exemplo</small></p>
                         </div>
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control" id="floatingInput" name="message" placeholder="Insira a mensagem aqui">
                             <label for="loatingInput">Mensagem</label>
+                            <p class="text-secondary"><small>Formato: exemplo</small></p>
                         </div>
                           <br>
                         <button onclick="print()" type="submit" class="btn btn-primary">Submit</button>
@@ -74,11 +79,12 @@
             </div>
         </main>
         <br>
-        <footer class="d-flex p-3 bg-dark text-white mt-auto">
-            <div>
-                <h2>Terceira etapa</h2>
+        <footer class="text-center text-lg-start bg-dark text-muted">
+            <div class="text-center p-4">
+              © 2022 Copyright:
+              <a class="text-reset fw-bold" href="/">Terceira Etapa</a>
             </div>
-        </footer>
+          </footer>
         <script>
             function print() {
                 let elements = document.getElementById("form").elements;
